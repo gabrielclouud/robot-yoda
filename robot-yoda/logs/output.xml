@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-04-27T17:17:26.579213" rpa="false" schemaversion="5">
+<suite id="s1" name="Dragdrop" source="/home/bio-ritmo.com.br/gabriel.garces/Área de Trabalho/robot-yoda/tests/dragdrop.robot">
+<test id="s1-t1" name="Deve arrastar o Skywalker e soltar no topo da lista" line="7">
+<kw name="Start session" owner="base">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>http://localhost:4723</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=Android Emulator</arg>
+<arg>automationName=UIAutomator2</arg>
+<arg>app=${EXECDIR}/app/yodapp-beta.apk</arg>
+<arg>udid=emulator-5554</arg>
+<arg>autoGrantPermissions=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-04-27T17:17:26.647701" elapsed="5.236086"/>
+</kw>
+<status status="PASS" start="2024-04-27T17:17:26.647260" elapsed="5.236634"/>
+</kw>
+<kw name="Get started" owner="base">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${start_button}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-04-27T17:17:31.884335" elapsed="4.321878"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:37.498710" level="INFO">xpath criteria: //*[contains(@text,"QAX")]</msg>
+<arg>${start_button}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" start="2024-04-27T17:17:36.206367" elapsed="1.292451"/>
+</kw>
+<status status="PASS" start="2024-04-27T17:17:31.884110" elapsed="5.614817"/>
+</kw>
+<kw name="Navigate to" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-27T17:17:37.499844" level="INFO">${hamburguer} = xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<var>${hamburguer}</var>
+<arg>xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-27T17:17:37.499652" elapsed="0.000220"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:37.545164" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2024-04-27T17:17:37.499985" elapsed="0.045247"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:37.546201" level="INFO">Clicking element 'xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]'.</msg>
+<msg time="2024-04-27T17:17:37.649248" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-04-27T17:17:37.545369" elapsed="0.103950"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-27T17:17:37.649673" level="INFO">${menu_item} = xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Star Wars"]</msg>
+<var>${menu_item}</var>
+<arg>xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="${item_text}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-27T17:17:37.649465" elapsed="0.000225"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:38.611224" level="INFO">xpath criteria: //*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Star Wars"]</msg>
+<arg>${menu_item}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2024-04-27T17:17:37.649797" elapsed="0.961493"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:38.612159" level="INFO">Clicking element 'xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Star Wars"]'.</msg>
+<msg time="2024-04-27T17:17:39.618469" level="INFO">xpath criteria: //*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Star Wars"]</msg>
+<arg>${menu_item}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-04-27T17:17:38.611423" elapsed="1.007111"/>
+</kw>
+<arg>item_text=Star Wars</arg>
+<status status="PASS" start="2024-04-27T17:17:37.499230" elapsed="2.119372"/>
+</kw>
+<kw name="Go to Item" owner="base">
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${item}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-04-27T17:17:39.619070" elapsed="0.041496"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2024-04-27T17:17:39.753405" level="INFO">xpath criteria: //*[contains(@text,"Lista")]</msg>
+<arg>${item}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" start="2024-04-27T17:17:39.660727" elapsed="0.092750"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${checkpoint}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-04-27T17:17:39.753611" elapsed="1.170477"/>
+</kw>
+<arg>item=Lista</arg>
+<arg>checkpoint=Luke Skywalker</arg>
+<status status="PASS" start="2024-04-27T17:17:39.618804" elapsed="1.305377"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-27T17:17:40.924483" level="INFO">${origin} = //android.widget.TextView[@text="@skywalker"]/../../..//*[contains(@resource-id, "drag_handle")]</msg>
+<var>${origin}</var>
+<arg>//android.widget.TextView[@text="@skywalker"]/../../..//*[contains(@resource-id, "drag_handle")]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-27T17:17:40.924332" elapsed="0.000176"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-27T17:17:40.924683" level="INFO">${target} = //android.widget.TextView[@text="@mando"]/../../..//*[contains(@resource-id, "drag_handle")]</msg>
+<var>${target}</var>
+<arg>//android.widget.TextView[@text="@mando"]/../../..//*[contains(@resource-id, "drag_handle")]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-27T17:17:40.924601" elapsed="0.000095"/>
+</kw>
+<kw name="My Drag And Drop" owner="extend">
+<msg time="2024-04-27T17:17:41.003191" level="FAIL">UnknownMethodException: Message: Not implemented
+Stacktrace:
+NotImplementedError: Not implemented
+    at AndroidUiautomator2Driver.doTouchDrag (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:88:9)
+    at AndroidUiautomator2Driver.performTouch (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:159:23)
+    at commandExecutor (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:106:18)
+    at /usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:171:12
+    at AsyncLock._promiseTry (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:306:31)
+    at exec (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:170:9)
+    at AsyncLock.acquire (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:189:3)
+    at AndroidUiautomator2Driver.executeCommand (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:122:39)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at defaultBehavior (/usr/local/lib/node_modules/appium/lib/appium.js:1109:14)
+    at AppiumDriver.executeWrappedCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1215:16)
+    at AppiumDriver.executeCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1121:17)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:393:19)</msg>
+<arg>${origin}</arg>
+<arg>${target}</arg>
+<status status="FAIL" start="2024-04-27T17:17:40.924788" elapsed="0.078848">UnknownMethodException: Message: Not implemented
+Stacktrace:
+NotImplementedError: Not implemented
+    at AndroidUiautomator2Driver.doTouchDrag (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:88:9)
+    at AndroidUiautomator2Driver.performTouch (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:159:23)
+    at commandExecutor (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:106:18)
+    at /usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:171:12
+    at AsyncLock._promiseTry (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:306:31)
+    at exec (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:170:9)
+    at AsyncLock.acquire (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:189:3)
+    at AndroidUiautomator2Driver.executeCommand (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:122:39)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at defaultBehavior (/usr/local/lib/node_modules/appium/lib/appium.js:1109:14)
+    at AppiumDriver.executeWrappedCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1215:16)
+    at AppiumDriver.executeCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1121:17)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:393:19)</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-04-27T17:17:41.003849" elapsed="0.000020"/>
+</kw>
+<kw name="Close session" owner="base">
+<status status="NOT RUN" start="2024-04-27T17:17:41.004005" elapsed="0.000016"/>
+</kw>
+<status status="FAIL" start="2024-04-27T17:17:26.646892" elapsed="14.357293">UnknownMethodException: Message: Not implemented
+Stacktrace:
+NotImplementedError: Not implemented
+    at AndroidUiautomator2Driver.doTouchDrag (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:88:9)
+    at AndroidUiautomator2Driver.performTouch (/home/bio-ritmo.com.br/gabriel.garces/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/touch.js:159:23)
+    at commandExecutor (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:106:18)
+    at /usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:171:12
+    at AsyncLock._promiseTry (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:306:31)
+    at exec (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:170:9)
+    at AsyncLock.acquire (/usr/local/lib/node_modules/appium/node_modules/async-lock/lib/index.js:189:3)
+    at AndroidUiautomator2Driver.executeCommand (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:122:39)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at defaultBehavior (/usr/local/lib/node_modules/appium/lib/appium.js:1109:14)
+    at AppiumDriver.executeWrappedCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1215:16)
+    at AppiumDriver.executeCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1121:17)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:393:19)</status>
+</test>
+<status status="FAIL" start="2024-04-27T17:17:26.580028" elapsed="14.424576"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Dragdrop">Dragdrop</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
